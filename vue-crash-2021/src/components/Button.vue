@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     myOnClick() {
-      console.log('trololololo')
+      this.$emit('btn-click')
     }
   }
 };

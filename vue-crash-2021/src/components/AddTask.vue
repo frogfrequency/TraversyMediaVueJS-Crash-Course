@@ -35,7 +35,25 @@ export default {
   },
   methods: {
     onSubmit(e) {
-      // e.preventDefault()
+      e.preventDefault()
+
+      if (!this.text) {
+        alert('Please add a task');
+        return
+      }
+
+      const newTask = {
+        // id: Math.floor(Math.random()*100000), // --> json-server assigns id for us.. this is bad practice anyway
+        text: this.text,
+        day: this.day,
+        reminder: this.reminder,
+      }
+
+      this.$emit('add-task', newTask)
+
+      this.text = ''
+      this.day = ''
+      this.reminder = false
     }
   }
 };
